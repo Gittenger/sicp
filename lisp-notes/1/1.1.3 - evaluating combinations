@@ -1,0 +1,4 @@
+;;;; Recursive evaluation of inner expressions
+(* (+ 2
+      (* 4 6))
+   (+ 3 5 7))
