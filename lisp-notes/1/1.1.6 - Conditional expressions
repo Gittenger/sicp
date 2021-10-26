@@ -1,0 +1,10 @@
+;(define (myabs x)
+  ;(cond ((> x o) x)
+        ;((= x 0) 0)
+        ;((< x 0) (- x))))
+
+(define (myabs x)
+  (cond ((< x 0) (- x))
+        (else x)))
+
+(myabs -6)

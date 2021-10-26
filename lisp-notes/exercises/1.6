@@ -1,0 +1,14 @@
+;The normal if statement is evaluated with lazy evaluation.
+;Once the predicate is found to be true, the consequent is returned,
+;and the alternate is not evaluated.
+;
+;Thus, when the good-enough? test eventually passes, the sqrt-iter function isn't called.
+;
+;
+;A user-defined if statement means the statement is not a special form.
+;Instead, it follows applicative order.
+;In this case, the else clause is the sqrt-iter function.
+;In applicative order, every argument is fully evaluated before the procedure is called.
+;Thus, even once the good-enough? predicate passes,
+;the sqrt-iter function will be called since it is an argument in the new-if function.
+;Thus it gets called endlessly.

@@ -1,0 +1,8 @@
+;In applicative order, (p) is never able to be evaluated,
+;thus catching the program in a loop.
+;The arguments are evaluated before the = operator of the leftmost function,
+;thus causing the interpreter to require the evaluation of all arguments first
+;
+;Under normal order, the leftmost function is always evaluated first,
+;so the test is passed when x = 0 is found to be true,
+;and (p) is never needed to be evaluated
