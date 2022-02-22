@@ -1,0 +1,28 @@
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y) 
+  (/ (+ x y) 2))
+
+;The tolerance of .001 as a good enough guess is very large
+;when calculating the sqrt of a very small number.
+;
+;This tolerance is far too small when calculating the sqrt
+;of very large numbers.
+;For large radicands, the procedure sqrt-iter enters an infinite recursion
+;because the tolerance is not scaled up to the large radicands
+;and floating-point numbers are represented with limited precision so
+;the absolute error at that scale is always greater than the tolerance. 
+
+(define (good-enough? guess x) 
+   (< (abs (- 1 (/ (improve guess x) guess))) 0.001)) 
+ 
+(define (square x)
+  (* x x))
+
+(sqrt-iter 10000000 100000000000000000000)
